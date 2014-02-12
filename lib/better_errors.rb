@@ -144,3 +144,4 @@ end
 require "better_errors/core_ext/exception"
 
 require "better_errors/rails" if defined? Rails::Railtie
+require "better_errors/exceptions"
