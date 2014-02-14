@@ -1,0 +1,13 @@
+{
+  "name": "Always Better",
+  "version": "1.0",
+  "description": "....",
+  "permissions" : [
+    "tabs"
+  ],
+	"background": {
+	    "scripts": ["background.js"]
+	 },
+  "manifest_version": 2,
+	"devtools_page": "devtools.html"
+}

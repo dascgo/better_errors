@@ -2,7 +2,6 @@
 <html>
 <head>
     <title><%= exception.class %> at <%= request_path %></title>
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=ruby"></script>
 </head>
 <body>
 
@@ -15,27 +14,31 @@
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      border: 1px solid #e5e5e5;
+      bottom: 22px;
+      border: 0;
       margin: 0;
-      margin-bottom: 22px;
       overflow: auto;
       width: 100%;
       white-space: pre-wrap;
-      padding-bottom: 4px;
+      padding: 5px;
+      box-sizing: border-box;
     }
     input{
-      margin: 0;
-      position: absolute;
-      bottom: 0;
-      padding: 4px;
-      border: 1px solid #ccc;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 4px 8px;
+      border: 0;
+      border-top: 1px solid #ccc;
       box-sizing: border-box;
       width: 100%;
     }
+    input:focus {
+      outline-width: 0;
+    }
   </style>
 
-  <pre class="prettyprint lang-rb"></pre>
+
+  <pre></pre>
   <input>
 
 </body>
@@ -75,8 +78,9 @@
 
     REPL.prototype.install = function() {
         //this.promptElement  = this.querySelector(".prompt span");
-        this.inputElement   = document.querySelector("input");
-        this.outputElement  = document.querySelector("pre");
+        this.inputElement     = document.querySelector("input");
+        this.outputElement    = document.querySelector("pre");
+        this.coloringElement  = document.querySelector("code");
 
         var self = this;
         this.inputElement.onkeydown = function(ev) {
