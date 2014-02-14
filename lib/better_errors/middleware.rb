@@ -93,7 +93,11 @@ module BetterErrors
         if text?(env)
           [ 'plain', @error_page.render('text') ]
         else
-          [ 'html', @error_page.render ]
+          if exception.to_s == 'BetterErrors::AlwaysBetter'
+            [ 'html', @error_page.render('simple') ]
+          else
+            [ 'html', @error_page.render ]
+          end
         end
       else
         [ 'html', no_errors_page ]

@@ -1,3 +1,45 @@
+# Always Better
+
+Always Better is an experimental fork of the Better Errors gem (it's README is intact, below) that gives you live REPL on the current page. This allows you to basically use Better Errors when there is no error.
+
+![image](http://i.imgur.com/QdvQN3g.png)
+
+
+## Installation
+
+There are two steps, adding this to your Gemfile (requires binding of caller) and installing the Chrome Extension.
+
+1. Make sure you have the binding_of_caller gem
+2. Clone this repo
+3. Edit your Gemfile to point to this repo on your machine (gem "better_errors", :path => "/path/to/better_errors")
+4. In Chrome, go to the url chrome://extensions
+5. Click on "Load unpacked extension..."
+6. In the dialog window, go to where you cloned this project and select the "always_better_ext" directory.
+
+
+## Usage
+
+1. Go to you rails app in Chrome. Note: Will only trigger when the project is being run from localhost:3000
+2. Open Chrome Devtools
+3. Click on "Rails C" tab
+4. At the bottom the panel, type in any rails command as if you were in the debugger, such as "current_user"
+
+
+## TODO
+
+1. Keep history when switching pages
+2. Fix issue when resizing Chrome Devtools window
+3. Syntax coloring
+4. Better way to recognize a ruby project that supports this than making sure the url is localhost:3000
+5. Chrome extension refactor (was thrown together as proof-of-concept)
+
+## Credits
+
+Many thanks to [charliesome](https://github.com/charliesome) for Better Errors.
+
+---
+
+
 # Better Errors [![Build Status](https://travis-ci.org/charliesome/better_errors.png)](https://travis-ci.org/charliesome/better_errors) [![Code Climate](https://codeclimate.com/github/charliesome/better_errors.png)](https://codeclimate.com/github/charliesome/better_errors)
 
 Better Errors replaces the standard Rails error page with a much better and more useful error page. It is also usable outside of Rails in any Rack app as Rack middleware.

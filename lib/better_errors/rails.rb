@@ -7,6 +7,11 @@ module BetterErrors
         BetterErrors.logger = Rails.logger
         BetterErrors.application_root = Rails.root.to_s
       end
+      ActiveSupport.on_load(:action_controller) do
+        after_filter lambda { |controller|
+          raise AlwaysBetter if params.include?("raise")
+        }
+      end
     end
 
     def insert_middleware
